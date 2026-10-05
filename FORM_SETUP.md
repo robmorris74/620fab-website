@@ -8,3 +8,5 @@ The website is static and keeps its existing `620fab.com` custom domain. The quo
 4. Publish the updated repository through the existing GitHub Pages setup. Submit a real test request on `https://620fab.com/`, confirm the success message, and confirm receipt in both the Formspree dashboard and destination inbox. Also test an invalid email and a request with neither phone nor email.
 
 The GoDaddy DNS setting for `620fab.com` does not need to change if it continues to point at this GitHub Pages site. If the site is instead deployed by copying files into GoDaddy hosting, upload `index.html`, `styles.css`, and `app.js` together after configuring the endpoint.
+
+The homepage keeps the call-first navigation, hero phone CTA, regional content and mobile call bar. Start a Project is an additional hero link to the request form. Form layout rules are scoped to the request section so other pages keep their existing contact layout. Without JavaScript, submission is disabled and a phone fallback is shown.

@@ -13,6 +13,7 @@ const projectForm = document.querySelector('#project-form');
 if (projectForm) {
   const status = projectForm.querySelector('#form-status');
   const submit = projectForm.querySelector('button[type="submit"]');
+  submit.disabled = false;
   const phone = projectForm.elements.phone;
   const email = projectForm.elements.email;
 
