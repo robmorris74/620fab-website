@@ -1,17 +1,17 @@
-# Inquiry activation — awaiting owner approval
+# Inquiry activation — owner approved, provider setup pending
 
-Status: review only. `PROJECT_FORM_ENDPOINT = ''` and `PROJECT_FORM_ENABLED = false` in app.js. No form can send with this configuration. Nothing has been deployed.
+Status: owner approved the receiving address **Sales@620fab.com**, final inquiry forms, controlled delivery testing, and publication after delivery verification. Approval recorded in this conversation; no further approval is required for that scope. `PROJECT_FORM_ENDPOINT = ''` and `PROJECT_FORM_ENABLED = false` in app.js. No form can send with this configuration. Nothing has been deployed.
 
 ## Findings
 
 - Main at 6e3c7be has telephone inquiries only. CNAME is 620fab.com; no deployment workflow is tracked.
 - PR #1 remains an unmerged draft at 5b8e8d0. Its setup selects Formspree but its endpoint is blank; no receiving address is specified.
 - Searched current repository and existing PR configuration for form endpoints and receiving addresses; none was configured. Connected-mailbox Formspree search returned no messages. Provider account/dashboard access was not available, so an existing account cannot be ruled out.
-- No receiving destination is authorized. Do not substitute a guessed sales/info/contact mailbox.
+- Approved receiving destination: **Sales@620fab.com**. Provider account sign-in, recipient verification and endpoint configuration remain pending. Do not assume delivery is configured merely because the destination is approved.
 
 ## Exact configuration needed
 
-1. Owner approves receiving mailbox address(es), the final forms, and the publication scope below.
+1. Complete: owner approved **Sales@620fab.com**, the final forms and the publication scope below.
 2. In an owner-controlled Formspree account, create or identify a form for **620 Fabrication website inquiries**, verify the approved mailbox, and enable its email notification workflow. One endpoint handles both cabins and Start a Project. Notification subjects identify each cabin; fields include listing URL, SKU, asking price, buyer details, message and reference.
 3. Obtain the exact public Integration endpoint `https://formspree.io/f/<actual-form-id>`. No private keys belong in the static site. Put that verified URL in `PROJECT_FORM_ENDPOINT` only after approval. Set `PROJECT_FORM_ENABLED` to true only for the approved activation.
 4. Configure provider-side spam filtering and available domain restrictions for 620fab.com and its www host as appropriate. `_gotcha` is the provider-recognized honeypot. If the selected provider form requires CAPTCHA/Turnstile, implement and verify its actual challenge/token flow before enabling. Do not disable required protection merely to fit this draft. Confirm the selected workflow accepts phone-only inquiries; do not enable CRM integrations requiring email without revisiting that choice.
@@ -21,7 +21,7 @@ Status: review only. `PROJECT_FORM_ENDPOINT = ''` and `PROJECT_FORM_ENABLED = fa
 
 ## Proposed publication scope
 
-Publish index.html, cabin-1.html, cabin-2.html, app.js and styles.css together. Keep all existing assets, inventory.css, telephone links, metadata, prices, specs and sales copy. Add the PR #1 Start a Project section to current main without overwriting later SEO changes. Add a purchase inquiry on each cabin page and an additional hero anchor to reach it. No photograph/gallery/admin changes.
+Publish index.html, cabin-1.html, cabin-2.html, app.js and styles.css together. Keep all existing assets, inventory.css, telephone links, metadata, prices, specs and sales copy. Add the PR #1 Start a Project section to current main without overwriting later SEO changes. Add a purchase inquiry on each cabin page and an additional hero anchor to reach it. The user also confirmed cabin pictures are available. Identifiable Cabin 1/Cabin 2 source images have not yet been located in the connected files; request their location or attachments before adding photographs. No gallery/admin changes have been deployed.
 
 Do not upload `tests/`, `.preview/`, `.openai/`, or review documentation as website pages. No auto-merge or deployment is configured by this change. The draft branch does not replace PR #1; once this consolidated change is approved, close or supersede PR #1 to avoid reintroducing its older app.js.
 
